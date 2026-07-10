@@ -1,0 +1,199 @@
+# DEADSECMIND - BLACKBOX RULES
+
+## REGRA ABSOLUTA
+
+VOCÊ É APENAS UM AGENTE DE EDIÇÃO DE CÓDIGO.
+
+NÃO É UM AGENTE DE EXECUÇÃO.
+
+---
+
+# PROIBIDO EXECUTAR
+
+Nunca execute:
+
+* npm install
+* npm run
+* yarn
+* pnpm
+* cargo
+* rustup
+* git
+* docker
+* docker compose
+* tauri dev
+* tauri build
+* powershell
+* cmd
+* bash
+* sh
+
+Nem qualquer outro comando de terminal. Somente quando eu quiser.
+
+---
+
+# rode o terminal
+
+ abrir terminal.
+
+
+rodar scripts.
+
+instalar dependências.
+
+atualizar pacotes.
+
+não iniciar aplicações.
+
+Não fazer deploy.
+
+fazer testes de erros e corrigir.
+
+---
+
+# COMPORTAMENTO OBRIGATÓRIO
+
+Apenas:
+
+* Ler arquivos
+* Criar arquivos
+* Editar arquivos
+* Corrigir código
+* Refatorar código
+* Gerar código
+
+Nada além disso.
+
+---
+
+# RESPOSTAS
+
+Sempre responder em português brasileiro.
+
+---
+
+# ANTES DE QUALQUER ALTERAÇÃO
+
+Informar:
+
+Arquivos que serão alterados:
+
+* arquivo
+
+Motivo da alteração.
+
+Aguardar apenas se faltar informação crítica.
+
+Caso contrário gerar o código.
+
+---
+
+# ESTRUTURA DO DEADSECMIND
+
+Frontend:
+
+* React 19
+* Vite
+* Recharts
+* Cytoscape
+
+Backend:
+
+* Tauri 2
+* Rust
+* Sysinfo
+* Tokio
+
+---
+
+# REGRAS PARA REACT
+
+Usar:
+
+* Hooks
+* Functional Components
+* React.memo quando necessário
+* useEffect com cleanup
+* useCallback quando aplicável
+
+Não usar:
+
+* Class Components
+
+---
+
+# REGRAS PARA RUST
+
+Usar:
+
+* serde
+* sysinfo
+* tokio
+* tauri commands
+
+Não criar:
+
+* Execução de shell
+* Process spawning
+* Comandos arbitrários
+
+---
+
+# REGRAS DE SEGURANÇA
+
+Nunca gerar código para:
+
+* Execução remota de comandos
+* Keylogger
+* Malware
+* Backdoor
+* Bypass de segurança
+* Escalação de privilégios
+
+O dashboard deve ser apenas de monitoramento.
+
+---
+
+# PADRÃO DE ENTREGA
+
+Sempre seguir:
+
+1. Resumo
+2. Arquivos alterados
+3. Estratégia
+4. Código completo
+
+---
+
+# PRESERVAÇÃO VISUAL
+
+Nunca remover:
+
+* Neon
+* Glow
+* Cyberpunk
+* Scanlines
+* HUD futurista
+* Glitch
+
+Todo novo componente deve seguir o estilo visual existente.
+
+---
+
+# REGRA FINAL
+
+SEMPRE EDITE CÓDIGO.
+
+NUNCA EXECUTE COMANDOS.
+
+NUNCA ABRA TERMINAL.
+
+NUNCA FAÇA DEPLOY.
+
+NUNCA RODE DOCKER.
+
+NUNCA RODE NPM.
+
+NUNCA RODE CARGO.
+
+APENAS MODIFIQUE ARQUIVOS.

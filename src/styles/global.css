@@ -1,0 +1,65 @@
+:root {
+  --bg-main: #050b0f;
+  --bg-card: #081018;
+  --bg-panel: #0a1520;
+  --neon-green: #00ff99;
+  --neon-green-glow: rgba(0, 255, 153, 0.4);
+  --neon-red: #ff0033;
+  --neon-red-glow: rgba(255, 0, 51, 0.4);
+  --neon-blue: #00ccff;
+  --neon-blue-glow: rgba(0, 204, 255, 0.4);
+  --neon-yellow: #ffcc00;
+  --text-main: #ffffff;
+  --text-muted: #556677;
+  --text-secondary: #8899aa;
+  --border-color: rgba(0, 255, 153, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: Arial, Helvetica, sans-serif;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* Global Transitions */
+button, a, div {
+  transition: all 0.3s ease;
+}
+
+/* Selection Color */
+::selection {
+  background: var(--neon-green);
+  color: var(--bg-main);
+}
+
+/* Focus Styles */
+*:focus {
+  outline: 2px solid var(--neon-green);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}

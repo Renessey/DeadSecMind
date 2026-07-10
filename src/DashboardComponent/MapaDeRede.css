@@ -1,0 +1,322 @@
+/* ============================================
+   NETWORK MAP - ULTRA RESPONSIVE VERSION
+============================================ */
+
+.network-map-container {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: linear-gradient(180deg, #081018 0%, #050b0f 100%);
+  border: 1px solid rgba(0,255,153,.15);
+  border-radius: 12px;
+}
+
+
+.cytoscape-container {
+  /* Adicione suporte a fontes de ícones se estiver usando CDN */
+  font-family: 'Font Awesome 6 Free', sans-serif; 
+}
+
+
+.network-map-container {
+  height: auto;           
+  min-height: 400px;      
+  max-height: 10rem;      
+  display: flex;
+  flex-direction: column;
+}
+
+
+.map-viewport {
+  flex: 1;
+  min-height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ============================================
+   HEADER
+============================================ */
+
+.map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(0,255,153,.1);
+  /* compatível com versões anteriores */
+  background: linear-gradient(180deg, rgba(0, 25, 35, 0.7) 0%, rgba(0, 15, 25, 0.5) 100%);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.map-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+map-title h3 {
+  color: #00ff99;
+  margin: 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(0, 255, 153, 0.6);
+  font-family: Consolas, Arial, monospace;
+  font-weight: 700;
+}
+
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #00ff99;
+  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00ff99;
+  animation: pulse 1.2s infinite;
+  box-shadow: 0 0 6px #00ff99;
+}
+
+/* ============================================
+   VIEWPORT
+============================================ */
+
+.map-viewport {
+  flex: 1;
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
+
+
+.cytoscape-container {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Texto dos nós do Cytoscape */
+/* Ajuda a manter a tipografia mais consistente e legível */
+.cytoscape-container .cy-node-label {
+  font-size: 9px;
+  line-height: 1.15;
+}
+
+
+
+/* ============================================
+   CONTROLS
+============================================ */
+
+.map-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.control-btn {
+  width: 38px;
+  height: 38px;
+  background: rgba(0,255,153,.08);
+  border: 1px solid rgba(0,255,153,.25);
+  color: #00ff99;
+  cursor: pointer;
+  transition: .2s;
+  border-radius: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-btn:hover {
+  background: rgba(0,255,153,.15);
+  box-shadow: 0 0 15px rgba(0,255,153,.3);
+}
+
+/* ============================================
+   TOOLTIP / PANELS
+============================================ */
+
+.node-detail-panel {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 320px;
+  background: rgba(5,11,15,.95);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0,255,153,.15);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.detail-header {
+  padding: 15px;
+  border-bottom: 1px solid rgba(0,255,153,.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detail-title h4 {
+  color: #fff;
+  margin: 0;
+}
+
+.detail-type {
+  color: #00ff99;
+  font-size: 11px;
+}
+
+.detail-body {
+  padding: 15px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  gap: 10px;
+  align-items: center;
+}
+
+.detail-key {
+  color: #7f8b93;
+  font-size: 12px;
+}
+
+.detail-value {
+  color: #fff;
+  font-size: 12px;
+}
+
+.activity-track {
+  width: 120px;
+  height: 6px;
+  background: rgba(255,255,255,.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.activity-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ccff, #00ff99);
+  border-radius: 4px;
+}
+
+/* ============================================
+   LEGEND
+============================================ */
+
+.map-legend {
+  display: flex;
+  gap: 25px;
+  padding: 12px 20px;
+  border-top: 1px solid rgba(0,255,153,.1);
+  flex-shrink: 0;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cfd8dc;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legend-dot.router {
+  background: #00ccff;
+}
+
+.legend-dot.server {
+  background: #00ff99;
+}
+
+.legend-dot.client {
+  background: #ffcc00;
+}
+
+/* ============================================
+   ANIMATION
+============================================ */
+
+@keyframes pulse {
+  0% {
+    opacity: .5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+  100% {
+    opacity: .5;
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   RESPONSIVE (mantém regras antigas para não quebrar UX)
+============================================ */
+
+@media (max-width: 1400px) {
+  .node-detail-panel {
+    width: 230px;
+  }
+  .map-header { padding: 10px 14px; }
+}
+
+@media (max-width: 1200px) {
+  .map-title h3 { font-size: 1.2rem; }
+  .map-controls { gap: 4px; }
+  .control-btn { padding: 5px 8px; }
+  .node-detail-panel { width: 220px; }
+}
+
+@media (max-width: 992px) {
+  .map-header { flex-wrap: wrap; align-items: flex-start; }
+  .map-controls { width: 100%; justify-content: flex-start; }
+}
+
+@media (max-width: 768px) {
+  .network-map-container { border-radius: 14px; }
+  .map-header { flex-direction: column; align-items: stretch; gap: 10px; padding: 10px 12px; }
+  .map-controls { width: 100%; justify-content: space-between; flex-wrap: wrap; }
+  .control-btn { flex: 1; min-width: 70px; text-align: center; height: 38px; }
+  .node-detail-panel { left: 10px; right: 10px; top: auto; bottom: 10px; width: auto; }
+  .map-legend { gap: 10px; padding: 8px 10px; justify-content: center; flex-wrap: wrap; }
+}
+
+@media (max-width: 560px) {
+  .map-title h3 { font-size: 1.2rem; letter-spacing: 1px; }
+  .live-indicator { font-size: 7px; }
+  .control-btn { font-size: 8px; padding: 5px 6px; }
+  .map-legend { justify-content: center; }
+}
+

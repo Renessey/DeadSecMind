@@ -1,0 +1,347 @@
+:root {
+  --scan-bg1: rgba(0, 255, 153, 0.06);
+  --scan-bg2: rgba(157, 0, 255, 0.06);
+  --scan-border: rgba(0, 255, 102, 0.18);
+  --scan-text-muted: rgba(136, 153, 170, 0.95);
+}
+
+.scan-page {
+  position: relative;
+  isolation: isolate;
+  padding: 2rem;
+
+  /* Permite rolagem quando o relatório cresce */
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+
+
+
+
+.page-header {
+  width: 100%;
+  padding: 18px 18px;
+  border-radius: 16px;
+  border: 1px solid var(--scan-border);
+  background: linear-gradient(
+    180deg,
+    rgba(8, 16, 24, 0.85) 0%,
+    rgba(5, 11, 15, 0.65) 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(157, 0, 255, 0.06),
+    0 10px 35px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.page-header > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.page-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+}
+
+.page-header p {
+  margin: 0;
+  color: var(--scan-text-muted);
+  line-height: 1.4;
+  max-width: 62ch;
+}
+
+.dashboard-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 18px;
+  width: 100%;
+}
+
+/* Ensure full-width behavior when maximizing / expanding layout */
+.dashboard-grid {
+  flex: 1 1 auto;
+}
+
+
+/* Override card styling for Scan page */
+.info-card {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 16, 24, 0.78) 0%,
+    rgba(6, 13, 20, 0.62) 100%
+  );
+  border: 1px solid rgba(0, 255, 102, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(0, 204, 255, 0.05),
+    0 12px 35px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.info-card.info-card-select {
+  cursor: pointer;
+}
+
+.info-card.info-card-select.selected {
+  border-color: rgba(0, 255, 102, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 102, 0.20),
+    0 0 35px rgba(0, 255, 153, 0.10),
+    0 12px 45px rgba(0, 0, 0, 0.30);
+}
+
+.info-card.info-card-select.selected::after {
+  background: radial-gradient(circle, rgba(0, 255, 153, 0.35) 0%, transparent 65%);
+}
+
+.info-card.info-card-select:focus-visible {
+  outline: 2px solid rgba(0, 255, 102, 0.75);
+  outline-offset: 3px;
+}
+
+/* Scan error/result */
+.scan-error {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 60, 110, 0.35);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 60, 110, 0.10) 0%,
+    rgba(8, 16, 24, 0.50) 100%
+  );
+  color: rgba(255, 210, 220, 0.95);
+  box-shadow: 0 0 0 1px rgba(255, 60, 110, 0.08);
+}
+
+.scan-error-title {
+  font-weight: 700;
+  margin-right: 6px;
+  color: rgba(255, 130, 170, 0.98);
+}
+
+.scan-result {
+  margin-top: 18px;
+  padding: 16px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 255, 102, 0.18);
+  background: linear-gradient(
+    180deg,
+    rgba(8, 16, 24, 0.65) 0%,
+    rgba(6, 13, 20, 0.50) 100%
+  );
+}
+
+.scan-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.scan-result-header h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.scan-result-header p {
+  margin: 0;
+  color: rgba(136, 153, 170, 0.95);
+}
+
+.scan-result-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.scan-badge {
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(157, 0, 255, 0.18);
+  background: rgba(157, 0, 255, 0.08);
+  color: rgba(225, 235, 255, 0.95);
+  font-family: 'Segoe UI', Roboto, monospace;
+  font-size: 0.9rem;
+}
+
+.scan-findings {
+  margin-top: 14px;
+}
+
+.scan-findings h4 {
+  margin: 0 0 10px 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.8px;
+  color: rgba(225, 255, 245, 0.92);
+}
+
+.scan-finding-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.scan-finding {
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 255, 102, 0.14);
+  background: rgba(0, 204, 255, 0.04);
+}
+
+.scan-finding-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.scan-finding-title {
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.scan-finding-severity {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(157, 0, 255, 0.20);
+  background: rgba(157, 0, 255, 0.10);
+  font-size: 0.85rem;
+}
+
+.scan-critical {
+  border-color: rgba(255, 60, 110, 0.35);
+  background: rgba(255, 60, 110, 0.08);
+}
+
+.scan-high {
+  border-color: rgba(255, 190, 60, 0.35);
+  background: rgba(255, 190, 60, 0.08);
+}
+
+.scan-medium {
+  border-color: rgba(157, 0, 255, 0.30);
+  background: rgba(157, 0, 255, 0.08);
+}
+
+.scan-low {
+  border-color: rgba(0, 255, 102, 0.25);
+  background: rgba(0, 255, 102, 0.06);
+}
+
+.scan-finding-desc {
+  margin: 8px 0 0 0;
+  color: rgba(136, 153, 170, 0.95);
+  line-height: 1.45;
+}
+
+.scan-ok {
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 255, 102, 0.25);
+  background: rgba(0, 255, 102, 0.06);
+  color: rgba(210, 255, 225, 0.95);
+}
+
+
+.info-card::after {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(0, 255, 153, 0.22) 0%, transparent 62%);
+  transform: rotate(20deg);
+  pointer-events: none;
+}
+
+.info-card h4 {
+font-family: Consolas, Arial, monospace;
+  letter-spacing: 1.1px;
+}
+
+.info-card p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* Action button style for scan */
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(0, 255, 102, 1) 0%, rgba(157, 0, 255, 1) 100%);
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 102, 0.25),
+    0 14px 40px rgba(157, 0, 255, 0.12);
+}
+
+.primary-button:active {
+  transform: translateY(0);
+}
+
+.primary-button:focus-visible {
+  outline: 2px solid var(--neon-green);
+  outline-offset: 3px;
+}
+
+
+
+/* Responsive tweaks */
+@media (max-width: 720px) {
+  .scan-page {
+    padding: 1.25rem;
+  }
+
+  .page-header {
+    padding: 14px 14px;
+    align-items: flex-start;
+  }
+
+  .page-header h2 {
+    font-size: 1.15rem;
+  }
+
+  .dashboard-grid {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info-card {
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scan-page::before {
+    background: none;
+  }
+}
+
+

@@ -1,0 +1,167 @@
+.app-header {
+  position: relative; /* MUDA de sticky para relative */
+  top: 0;
+  z-index: 60;
+  width: 100%;
+  left: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: linear-gradient(180deg, rgba(10, 14, 20, 0.99) 0%, rgba(6, 9, 14, 0.95) 100%);
+  border-bottom: 1px solid rgba(0, 255, 102, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-app-region: drag;
+  user-select: none;
+  flex-shrink: 0; /* Garante que o header não encolha */
+}
+
+.app-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 102, 0.3), transparent);
+  pointer-events: none; /* Garante que não interfira em cliques */
+}
+
+.app-header-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.app-logo {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.app-logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.app-title {
+  color: var(--neon-green);
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
+}
+
+.app-header-controls {
+  display: flex;
+  gap: 6px;
+  -webkit-app-region: no-drag;
+}
+
+.win-btn {
+  width: 38px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+  font-size: 0.75rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.win-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.win-btn:hover::before {
+  opacity: 1;
+}
+
+.win-min {
+  background: rgba(0, 255, 102, 0.08);
+  color: var(--neon-green);
+  border-color: rgba(0, 255, 102, 0.15);
+}
+
+.win-min:hover {
+  background: rgba(0, 255, 102, 0.15);
+  box-shadow: 0 0 20px rgba(0, 255, 102, 0.2), inset 0 0 15px rgba(0, 255, 102, 0.05);
+  transform: translateY(-2px);
+}
+
+.win-max {
+  background: rgba(157, 0, 255, 0.06);
+  color: var(--neon-purple);
+  border-color: rgba(157, 0, 255, 0.15);
+}
+
+.win-max:hover {
+  background: rgba(157, 0, 255, 0.12);
+  box-shadow: 0 0 20px rgba(157, 0, 255, 0.2), inset 0 0 15px rgba(157, 0, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.win-close {
+  background: rgba(255, 60, 60, 0.08);
+  color: #ff6b6b;
+  border-color: rgba(255, 60, 60, 0.15);
+}
+
+.win-close:hover {
+  background: rgba(255, 60, 60, 0.18);
+  box-shadow: 0 0 20px rgba(255, 60, 60, 0.25), inset 0 0 15px rgba(255, 60, 60, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Active/pressed state */
+.win-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* Focus outline for accessibility */
+.win-btn:focus-visible {
+  outline: 2px solid var(--neon-green);
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 520px) {
+  .app-header {
+    padding: 0 10px;
+    height: 44px;
+  }
+
+  .app-title {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+  }
+
+  .app-logo {
+    width: 28px;
+    height: 28px;
+  }
+
+  .win-btn {
+    width: 34px;
+    height: 28px;
+  }
+}
